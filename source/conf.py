@@ -46,7 +46,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'vikngs'
+project = u'vikNGS'
 copyright = u'2018, Scott Mastromatteo'
 author = u'Scott Mastromatteo'
 
@@ -164,6 +164,16 @@ texinfo_documents = [
      author, 'vikngs', 'One line description of project.',
      'Miscellaneous'),
 ]
+
+
+#The name of an image file (relative to this directory) to place at the top
+# of the sidebar.
+html_logo = "resources/vikngs_logo.svg"
+
+# The name of an image file (within the static path) to use as favicon of the
+# docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
+# pixels large.
+html_favicon = "resources/favicon.png"
 
 
 

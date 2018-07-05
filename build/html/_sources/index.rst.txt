@@ -1,12 +1,15 @@
-.. figure:: resources/vikings_logo.svg
+.. figure:: resources/vikngs_logo.svg
+   :target: index.html
    :width: 300px
    :height: 150px
    :alt: vikNGS logo
 
+
+
 Documentation for vikNGS
 ==================================
 
-vikNGS designed for association analysis for next generation sequencing (NGS) data when integrating sequence data from different studies. Compared to the usual score test, it uses a score test with a robust variance calculated from the expected genotype probability given the observed sequencing data, rather than the genotype hard call.
+The Variant Integration Kit for Next Generation Sequencing (vikNGS) was designed for association analysis of NGS data integrated across different studies. Compared to the usual score test, it uses a score test with a robust variance calculated from the expected genotype probability given the observed sequencing data, rather than the hard genotype call.
 
 The software package includes tests for both rare and common variant association and can handle both case-control and quantitative studies.
 
@@ -19,19 +22,11 @@ The code is open source, and `available on GitHub`_.
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
-
-
-.. toctree::
-   :maxdepth: 2
    :caption: Table of Contents
 
-   getting_started
+   quick_start
    input
+   parameters
+   tests
+   power_calculation
 
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`

@@ -8,10 +8,12 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Documentation for vikNGS &mdash; vikngs 0.0.1 documentation</title>
+  <title>Documentation for vikNGS &mdash; vikNGS 0.0.1 documentation</title>
   
 
   
+  
+    <link rel="shortcut icon" href="_static/favicon.png"/>
   
   
   
@@ -28,7 +30,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Getting Started" href="getting_started.html" /> 
+    <link rel="next" title="Quick Start" href="quick_start.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -47,9 +49,12 @@
           
 
           
-            <a href="#" class="icon icon-home"> vikngs
+            <a href="#" class="icon icon-home"> vikNGS
           
 
+          
+            
+            <img src="_static/vikngs_logo.svg" class="logo" alt="Logo"/>
           
           </a>
 
@@ -83,8 +88,11 @@
             
               <p class="caption"><span class="caption-text">Table of Contents</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="input.html">Input</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input.html">Input Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parameters.html">Choosing Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tests.html">Association Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="power_calculation.html">Power Calculator</a></li>
 </ul>
 
             
@@ -99,7 +107,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="#">vikngs</a>
+          <a href="#">vikNGS</a>
         
       </nav>
 
@@ -150,36 +158,48 @@
            <div itemprop="articleBody">
             
   <div class="figure">
-<a class="reference internal image-reference" href="_images/vikings_logo.svg"><img alt="vikNGS logo" height="150px" src="_images/vikings_logo.svg" width="300px" /></a>
+<a class="reference external image-reference" href="index.html"><img alt="vikNGS logo" height="150px" src="_images/vikngs_logo.svg" width="300px" /></a>
 </div>
 <div class="section" id="documentation-for-vikngs">
 <h1>Documentation for vikNGS<a class="headerlink" href="#documentation-for-vikngs" title="Permalink to this headline">¶</a></h1>
-<p>vikNGS designed for association analysis for next generation sequencing (NGS) data when integrating sequence data from different studies. Compared to the usual score test, it uses a score test with a robust variance calculated from the expected genotype probability given the observed sequencing data, rather than the genotype hard call.</p>
+<p>The Variant Integration Kit for Next Generation Sequencing (vikNGS) was designed for association analysis of NGS data integrated across different studies. Compared to the usual score test, it uses a score test with a robust variance calculated from the expected genotype probability given the observed sequencing data, rather than the hard genotype call.</p>
 <p>The software package includes tests for both rare and common variant association and can handle both case-control and quantitative studies.</p>
 <p>Provide a multisample VCF file and a tab-separated sample information file. The variants will be extracted from the VCF and expected genotypes are computed for every individual. Variants are then filtered based on user-provided filtering parameters. A series of association tests are performed and the resulting p-values are provided as output.</p>
 <p>The code is open source, and <a class="reference external" href="https://github.com/ScottMastro/vikNGS">available on GitHub</a>.</p>
 <div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">Table of Contents</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="input.html">Input</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick Start</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quick_start.html#installing-software">Installing Software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quick_start.html#generating-input-files">Generating Input Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quick_start.html#running-user-interface">Running User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quick_start.html#running-command-line">Running Command Line</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="input.html">Input Files</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="input.html#multisample-vcf">Multisample VCF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="input.html#generating-a-multisample-vcf">Generating a Multisample VCF</a></li>
 <li class="toctree-l2"><a class="reference internal" href="input.html#sample-information-file">Sample Information File</a></li>
 <li class="toctree-l2"><a class="reference internal" href="input.html#bed-file-optional">BED File (Optional)</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="parameters.html">Choosing Parameters</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="parameters.html#command-line-parameters">Command Line Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parameters.html#parameter-explaination">Parameter Explaination</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tests.html">Association Tests</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tests.html#common-variant-association-test">Common Variant Association Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tests.html#rare-variant-association-test">Rare Variant Association Test</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="power_calculation.html">Power Calculator</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="power_calculation.html#parameters">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="power_calculation.html#output">Output</a></li>
+</ul>
+</li>
 </ul>
 </div>
-</div>
-<div class="section" id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
-<li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
-<li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
-<li><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></li>
-</ul>
 </div>
 
 
@@ -190,7 +210,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="getting_started.html" class="btn btn-neutral float-right" title="Getting Started" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="quick_start.html" class="btn btn-neutral float-right" title="Quick Start" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
     </div>

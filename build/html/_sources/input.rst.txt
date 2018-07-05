@@ -1,16 +1,13 @@
+.. _input:
 
-
-.. figure:: resources/vikings_logo.svg
-   :width: 300px
-   :height: 150px
-   :alt: vikNGS logo
-
-Input
+Input Files
 ==================================
 
 TODO: intro to this section
 
 TODO: While parsing the file only SNPs will be retained (a single A, T, C, or G in both the REF and ALT columns). Multiallelic sites are specified with comma delimited ALT columns, these variants will also be ignored.
+
+.. _multisample_vcf:
 
 Multisample VCF
 ---------------
@@ -82,20 +79,33 @@ All columns following the **FORMAT** column should correspond to a single sample
     If all three fail, the variant will be skipped and not included in analysis.
     Note that if **GT** values are indicated as “missing” (ex. ./.) then the variant will be skipped even if values for **GL** and **PL** are present.
 
+.. _make_vcf:
+
+Generating a Multisample VCF
+------------------------------------
+
+TODO
+
+
+.. _sample_info:
+
 Sample Information File
 -----------------------
 
-To associate samples with case-control status or qualitative values, vikNGS requires the user to provide information in a separate file. This tab-separated file is defined specifically for use in vikNGS. One line per sample column in the VCF.
-
+To utilize phenotypic data and sample-specific information, vikNGS requires the user to provide this information in a separate file. This tab-separated file is defined specifically for use in vikNGS. This file should *not* have headers and is expected to contain one sample per line.
+    
 The columns are defined as follows:
 
 Sample ID
 ~~~~~~~~~
-The sample ID should be a unique value. The only additional requirement is that every sample ID needs to identically match exactly one of the IDs that appear after the FORMAT column in the multisample VCF file. This column specifies the relationship between the sample-specific data and the data in the VCF file.
+Every line in the sample information file should begin with a *unique* sample ID. The only additional requirement is that every sample ID needs to identically match exactly one of the IDs that appear after the **FORMAT** column in the multisample VCF file. This column specifies the relationship between the sample-specific data and the data in the VCF file.
 
 Response Variable
 ~~~~~~~~~~~~~~~~~
-This column will determine whether the samples are case-control or qualitative. For case-control, cases are designated with a 1 and controls with a 0 in this column. For qualitative, the actual qualitative value (numeric value) should be provided.
+This column contains phenotypic data which will be used to identify association with genotype information.
+
+.. note:: 
+    If looking to find association information between case-control groups, this column is used to specify case-control status. Please designate cases with a 1 and controls with a 0 in this column.
 
 Group ID
 ~~~~~~~~

@@ -8,10 +8,12 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Input &mdash; vikngs 0.0.1 documentation</title>
+  <title>Input Files &mdash; vikNGS 0.0.1 documentation</title>
   
 
   
+  
+    <link rel="shortcut icon" href="_static/favicon.png"/>
   
   
   
@@ -28,7 +30,8 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Getting Started" href="getting_started.html" /> 
+    <link rel="next" title="Choosing Parameters" href="parameters.html" />
+    <link rel="prev" title="Quick Start" href="quick_start.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -47,9 +50,12 @@
           
 
           
-            <a href="index.html" class="icon icon-home"> vikngs
+            <a href="index.html" class="icon icon-home"> vikNGS
           
 
+          
+            
+            <img src="_static/vikngs_logo.svg" class="logo" alt="Logo"/>
           
           </a>
 
@@ -83,13 +89,14 @@
             
               <p class="caption"><span class="caption-text">Table of Contents</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Input</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick Start</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Input Files</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#multisample-vcf">Multisample VCF</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#variant-specific-columns">Variant Specific Columns</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#sample-specific-columns">Sample Specific Columns</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#generating-a-multisample-vcf">Generating a Multisample VCF</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#sample-information-file">Sample Information File</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#sample-id">Sample ID</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#response-variable">Response Variable</a></li>
@@ -101,6 +108,9 @@
 <li class="toctree-l2"><a class="reference internal" href="#bed-file-optional">BED File (Optional)</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="parameters.html">Choosing Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tests.html">Association Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="power_calculation.html">Power Calculator</a></li>
 </ul>
 
             
@@ -115,7 +125,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">vikngs</a>
+          <a href="index.html">vikNGS</a>
         
       </nav>
 
@@ -146,7 +156,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Input</li>
+      <li>Input Files</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -165,24 +175,21 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="figure">
-<a class="reference internal image-reference" href="_images/vikings_logo.svg"><img alt="vikNGS logo" height="150px" src="_images/vikings_logo.svg" width="300px" /></a>
-</div>
-<div class="section" id="input">
-<h1>Input<a class="headerlink" href="#input" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="input-files">
+<span id="input"></span><h1>Input Files<a class="headerlink" href="#input-files" title="Permalink to this headline">¶</a></h1>
 <p>TODO: intro to this section</p>
 <p>TODO: While parsing the file only SNPs will be retained (a single A, T, C, or G in both the REF and ALT columns). Multiallelic sites are specified with comma delimited ALT columns, these variants will also be ignored.</p>
 <div class="section" id="multisample-vcf">
-<h2>Multisample VCF<a class="headerlink" href="#multisample-vcf" title="Permalink to this headline">¶</a></h2>
+<span id="id1"></span><h2>Multisample VCF<a class="headerlink" href="#multisample-vcf" title="Permalink to this headline">¶</a></h2>
 <p>A Variant Call Format (VCF) file is a standard way of storing variant information called from sequencing data. Each row of a VCF file corresponds to a genetic variant (insertion, deletion or SNP) and contains information such as the genomic position of the variant, the confidence in the variant call and many other additional annotations.</p>
 <p>A multisample VCF is required as input to perform genetic association tests in vikNGS. A multisample VCF is formatted identically to a single-sample VCF except it contains an extra set of columns corresponding to sample-specific data.</p>
-<div class="figure align-center" id="id1">
+<div class="figure align-center" id="id2">
 <img alt="Multsample VCF Layout" src="_images/vcf_layout.png" />
 <p class="caption"><span class="caption-text">The general layout of a multisample VCF file.</span></p>
 </div>
 <p>The first set of lines in a VCF file make up the header and are denoted by <em>##</em>. The header includes information about the data source and the computational pipline setting used when creating the VCF file. This information is ignored when reading a file into vikNGS. The last line of the header is denoted with a single <em>#</em> and includes the column names in addition to a unique identifier for every sample. The first nine columns must be (tab-delimited, in order) <strong>CHROM</strong>, <strong>POS</strong>, <strong>ID</strong>, <strong>REF</strong>, <strong>ALT</strong>, <strong>QUAL</strong>, <strong>FILTER</strong>, <strong>INFO</strong> and <strong>FORMAT</strong>. Every subsequent value is expected to be a unique sample identifier.</p>
-<div class="literal-block-wrapper docutils container" id="id2">
-<div class="code-block-caption"><span class="caption-text"><em>Example of a multisample VCF</em></span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text"><em>Example of a multisample VCF</em></span><a class="headerlink" href="#id3" title="Permalink to this code">¶</a></div>
 <div class="highlight-python"><div class="highlight"><pre><span></span> <span class="c1">##fileformat=VCFv4.1</span>
  <span class="c1">##FILTER=&lt;ID=PASS,Description=&quot;All filters passed&quot;&gt;</span>
  <span class="c1">##FORMAT=&lt;ID=GT,Number=1,Type=String,Description=&quot;Genotype&quot;&gt;</span>
@@ -227,17 +234,25 @@ Note that if <strong>GT</strong> values are indicated as “missing” (ex. ./.)
 </div>
 </div>
 </div>
+<div class="section" id="generating-a-multisample-vcf">
+<span id="make-vcf"></span><h2>Generating a Multisample VCF<a class="headerlink" href="#generating-a-multisample-vcf" title="Permalink to this headline">¶</a></h2>
+<p>TODO</p>
+</div>
 <div class="section" id="sample-information-file">
-<h2>Sample Information File<a class="headerlink" href="#sample-information-file" title="Permalink to this headline">¶</a></h2>
-<p>To associate samples with case-control status or qualitative values, vikNGS requires the user to provide information in a separate file. This tab-separated file is defined specifically for use in vikNGS. One line per sample column in the VCF.</p>
+<span id="sample-info"></span><h2>Sample Information File<a class="headerlink" href="#sample-information-file" title="Permalink to this headline">¶</a></h2>
+<p>To utilize phenotypic data and sample-specific information, vikNGS requires the user to provide this information in a separate file. This tab-separated file is defined specifically for use in vikNGS. This file should <em>not</em> have headers and is expected to contain one sample per line.</p>
 <p>The columns are defined as follows:</p>
 <div class="section" id="sample-id">
 <h3>Sample ID<a class="headerlink" href="#sample-id" title="Permalink to this headline">¶</a></h3>
-<p>The sample ID should be a unique value. The only additional requirement is that every sample ID needs to identically match exactly one of the IDs that appear after the FORMAT column in the multisample VCF file. This column specifies the relationship between the sample-specific data and the data in the VCF file.</p>
+<p>Every line in the sample information file should begin with a <em>unique</em> sample ID. The only additional requirement is that every sample ID needs to identically match exactly one of the IDs that appear after the <strong>FORMAT</strong> column in the multisample VCF file. This column specifies the relationship between the sample-specific data and the data in the VCF file.</p>
 </div>
 <div class="section" id="response-variable">
 <h3>Response Variable<a class="headerlink" href="#response-variable" title="Permalink to this headline">¶</a></h3>
-<p>This column will determine whether the samples are case-control or qualitative. For case-control, cases are designated with a 1 and controls with a 0 in this column. For qualitative, the actual qualitative value (numeric value) should be provided.</p>
+<p>This column contains phenotypic data which will be used to identify association with genotype information.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If looking to find association information between case-control groups, this column is used to specify case-control status. Please designate cases with a 1 and controls with a 0 in this column.</p>
+</div>
 </div>
 <div class="section" id="group-id">
 <h3>Group ID<a class="headerlink" href="#group-id" title="Permalink to this headline">¶</a></h3>
@@ -292,8 +307,10 @@ chr4    0    250</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
+        <a href="parameters.html" class="btn btn-neutral float-right" title="Choosing Parameters" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
-        <a href="getting_started.html" class="btn btn-neutral" title="Getting Started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+        <a href="quick_start.html" class="btn btn-neutral" title="Quick Start" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
